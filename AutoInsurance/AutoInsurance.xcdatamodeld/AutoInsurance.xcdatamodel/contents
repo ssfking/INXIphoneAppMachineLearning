@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12A269" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CoreLocation" syncable="YES">
+        <attribute name="altitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="direction" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="distanceTraveled" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="horizontalAccuracy" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="speed" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="verticalAccuracy" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="user" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="locations" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="CoreMotion" syncable="YES">
+        <attribute name="accelerationSum" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="accelerationX" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="accelerationY" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="user" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="motions" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="User" syncable="YES">
+        <attribute name="isRegistered" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreLocation" inverseName="user" inverseEntity="CoreLocation" syncable="YES"/>
+        <relationship name="motions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreMotion" inverseName="user" inverseEntity="CoreMotion" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CoreLocation" positionX="162" positionY="48" width="128" height="195"/>
+        <element name="CoreMotion" positionX="162" positionY="252" width="128" height="120"/>
+        <element name="User" positionX="396" positionY="153" width="128" height="103"/>
+    </elements>
+</model>
